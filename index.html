@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dimensions</title>
+    <script src="js/aframe-v0.7.1.js"></script>
+    <script src="js/aframe-sun-sky.js"></script>
+    <script src="js/aframe-look-at-component.js"></script>
+  </head>
+  <body>
+  
+    <a-scene>
+      <a-assets timeout="10000">
+        <!-- PLaceholder videos: Adobe Premiere Pro tutorial, (c) Adobe -->
+        <video id="p1" autoplay loop="true" src="assets/dimension1.mp4">
+        <video id="p2" autoplay loop="true" src="assets/dimension2.mp4">
+        <video id="p3" autoplay loop="true" src="assets/dimension3.mp4">
+        <video id="p4" autoplay loop="true" src="assets/dimension4.mp4">
+        <video id="p5" autoplay loop="true" src="assets/dimension5.mp4">
+        <video id="p6" autoplay loop="true" src="assets/dimension6.mp4">
+        <audio id="click-sound" src="assets/click.mp3"></audio>
+
+        <script id="paneltemplate" type="text/x-nunjucks-template">
+          <a-plane height="2" width="4" material="shader: flat; src: {{ thumb }}"></a-plane>
+        </script>
+      </a-assets>
+      <a-sun-sky></a-sun-sky>
+      <!-- the layout component with templates, also using the look-at component -->
+        <a-video src="#p1" width="16" height="9" position="-20 10 -20" look-at="#player"></a-video>
+        <a-video src="#p2" width="16" height="9" position="0 10 -20" look-at="#player"></a-video>
+        <a-video src="#p3" width="16" height="9" position="20 10 -20" look-at="#player"></a-video>
+        <a-video src="#p4" width="16" height="9" position="-20 0 -20" look-at="#player"></a-video>
+        <a-video src="#p5" width="16" height="9" position="0 0 -20" look-at="#player"></a-video>
+        <a-video src="#p6" width="16" height="9" position="20 0 -20" look-at="#player"></a-video>
+        <!-- double the structure -->
+        <a-entity position="0 0 40" rotation="0 180 0">
+          <a-plane text="value: Dimension 1; width: 28; color: black; align: center;" width="16" height="9" position="-20 10 -20" look-at="#player"></a-plane>
+          <a-plane text="value: Dimension 2; width: 28; color: black; align: center;" width="16" height="9" position="0 10 -20" look-at="#player"></a-plane>
+          <a-plane text="value: Dimension 3; width: 28; color: black; align: center;" width="16" height="9" position="20 10 -20" look-at="#player"></a-plane>
+          <a-plane text="value: Dimension 4; width: 28; color: black; align: center;" width="16" height="9" position="-20 0 -20" look-at="#player"></a-plane>
+          <a-plane text="value: Dimension 5; width: 28; color: black; align: center;" width="16" height="9" position="0 0 -20" look-at="#player"></a-plane>
+          <a-plane text="value: Dimension 6; width: 28; color: black; align: center;" width="16" height="9" position="20 0 -20" look-at="#player"></a-plane>
+        </a-entity>
+
+      <a-entity position="0 -1 0" id="player">
+        <a-camera>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+    <script>
+    var scene = document.querySelector('a-scene');
+    if (scene.hasLoaded) {
+      run();
+    } else {
+      scene.addEventListener('loaded', run);
+    }
+    function run () {
+        console.log("scene has loaded");
+        var loadtext = scene.querySelector('loadtext');
+        loadtext.setAttribute('material', 'color', 'red');
+    }
+  </script>
+  </body>
+</html>
