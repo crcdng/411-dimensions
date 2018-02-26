@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>dimensions</title>
+    <link rel="stylesheet" type="text/css" href="ui.css">
     <script src="js/dat.gui.min.js"></script>
     <script src="js/aframe-v0.7.1.js"></script>
     <script src="js/aframe-sun-sky.js"></script>
@@ -12,12 +13,12 @@
     <a-scene>
       <a-assets timeout="10000">
         <!-- PLaceholder videos: Adobe Premiere Pro tutorial, (c) Adobe -->
-        <video id="video1" autoplay loop="true" src="assets/01/dimension1.mp4">
-        <video id="video2" autoplay loop="true" src="assets/01/dimension2.mp4">
-        <video id="video3" autoplay loop="true" src="assets/01/dimension3.mp4">
-        <video id="video4" autoplay loop="true" src="assets/01/dimension4.mp4">
-        <video id="video5" autoplay loop="true" src="assets/01/dimension5.mp4">
-        <video id="video6" autoplay loop="true" src="assets/01/dimension6.mp4">
+        <video id="video1" loop="true" src="assets/01/dimension1.mp4">
+        <video id="video2" loop="true" src="assets/01/dimension2.mp4">
+        <video id="video3" loop="true" src="assets/01/dimension3.mp4">
+        <video id="video4" loop="true" src="assets/01/dimension4.mp4">
+        <video id="video5" loop="true" src="assets/01/dimension5.mp4">
+        <video id="video6" loop="true" src="assets/01/dimension6.mp4">
 
         <script id="paneltemplate" type="text/x-nunjucks-template">
           <a-plane height="2" width="4" material="shader: flat; src: {{ thumb }}"></a-plane>
@@ -36,6 +37,7 @@
         <a-camera></a-camera>
       </a-entity>
     </a-scene>
+    <button id="play-button">Loading...</button>
     <script src="js/app.js"></script>
   </body>
 </html>
