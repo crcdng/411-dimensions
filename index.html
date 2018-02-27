@@ -12,27 +12,21 @@
   <body>
     <a-scene>
       <a-assets timeout="10000">
-        <!-- PLaceholder videos: Adobe Premiere Pro tutorial, (c) Adobe -->
+        <!-- Placeholder videos: Adobe Premiere Pro tutorial, (c) Adobe -->
         <video id="video1" loop="true" src="assets/01/dimension1.mp4">
         <video id="video2" loop="true" src="assets/01/dimension2.mp4">
         <video id="video3" loop="true" src="assets/01/dimension3.mp4">
         <video id="video4" loop="true" src="assets/01/dimension4.mp4">
         <video id="video5" loop="true" src="assets/01/dimension5.mp4">
         <video id="video6" loop="true" src="assets/01/dimension6.mp4">
-
-        <script id="paneltemplate" type="text/x-nunjucks-template">
-          <a-plane height="2" width="4" material="shader: flat; src: {{ thumb }}"></a-plane>
-        </script>
       </a-assets>
       <a-sun-sky></a-sun-sky>
-
       <a-video id="panel1" src="#video1" width="16" height="9" position="-20 10 -20" look-at="#player"></a-video>
       <a-video id="panel2" src="#video2" width="16" height="9" position="0 10 -20" look-at="#player"></a-video>
       <a-video id="panel3" src="#video3" width="16" height="9" position="20 10 -20" look-at="#player"></a-video>
       <a-video id="panel4" src="#video4" width="16" height="9" position="-20 0 -20" look-at="#player"></a-video>
       <a-video id="panel5" src="#video5" width="16" height="9" position="0 0 -20" look-at="#player"></a-video>
       <a-video id="panel6" src="#video6" width="16" height="9" position="20 0 -20" look-at="#player"></a-video>
-
       <a-entity position="0 -1 0" id="player">
         <a-camera></a-camera>
       </a-entity>
